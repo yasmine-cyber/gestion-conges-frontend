@@ -1,0 +1,65 @@
+<div class="employee-dashboard">
+  <h2>Soumettre une demande de congé</h2>
+  
+  <form (ngSubmit)="submitLeaveRequest()" #leaveForm="ngForm">
+    <div>
+      <label for="startDate">Date de début</label>
+      <input 
+        type="date" 
+        id="startDate" 
+        [(ngModel)]="startDate" 
+        name="startDate" 
+        required
+      >
+    </div>
+
+    <div>
+      <label for="endDate">Date de fin</label>
+      <input 
+        type="date" 
+        id="endDate" 
+        [(ngModel)]="endDate" 
+        name="endDate" 
+        required
+      >
+    </div>
+
+    <div>
+      <label for="cause">Cause du congé</label>
+      <select 
+        id="cause" 
+        [(ngModel)]="cause" 
+        name="cause" 
+        required
+      >
+        <option value="vacation">Vacances</option>
+        <option value="sick">Maladie</option>
+        <option value="maternity">Maternité</option>
+        <option value="personal">Personnel</option>
+      </select>
+    </div>
+
+    <button 
+      type="submit" 
+      [disabled]="isSubmitting || !leaveForm.form.valid"
+    >
+      {{ isSubmitting ? 'Envoi en cours...' : 'Soumettre' }}
+    </button>
+  </form>
+
+  <div *ngIf="successMessage" style="color: green; margin: 10px 0;">
+    {{ successMessage }}
+  </div>
+
+  <div *ngIf="errorMessage" style="color: red; margin: 10px 0;">
+    {{ errorMessage }}
+  </div>
+
+  <h3>Mes demandes de congé</h3>
+  <ul>
+    <li *ngFor="let request of leaveRequests">
+      {{ request.start_date }} - {{ request.end_date }} 
+      ({{ request.cause }}) - Statut: {{ request.status }}
+    </li>
+  </ul>
+</div>

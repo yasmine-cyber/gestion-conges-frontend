@@ -1,0 +1,125 @@
+.navbar {
+  background: linear-gradient(90deg, #f9f6f7, #bfcaf5);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul li {
+  display: inline-block;
+  position: relative;
+}
+
+.navbar ul li a,
+.navbar ul li button {
+  text-decoration: none;
+  color: rgb(5, 5, 5);
+  font-weight: 600;
+  font-size: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+
+.navbar ul li button:hover,
+.navbar ul li a:hover {
+  color: #161515;
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.navbar ul li a.active {
+  color: #1f1e1f;
+  background-color: rgba(255, 255, 255, 0.2);
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.navbar-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-logo:hover {
+  color: #090909;
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+/* Effet de soulignement animé pour les liens */
+.navbar ul li a::after,
+.navbar ul li button::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #111010;
+  transition: width 0.3s ease;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.navbar ul li a:hover::after,
+.navbar ul li button:hover::after {
+  width: 100%;
+}
+
+/* Animation pour le logo */
+@keyframes logoBounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.navbar-logo:hover {
+  animation: logoBounce 0.5s ease;
+}
+
+/* Responsive design pour les écrans plus petits */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .navbar ul li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar ul li a,
+  .navbar ul li button {
+    width: 100%;
+    display: block;
+  }
+}

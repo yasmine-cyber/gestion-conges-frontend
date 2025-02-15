@@ -1,0 +1,122 @@
+/* Conteneur principal */
+.employee-dashboard {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Titres */
+  .employee-dashboard h2,
+  .employee-dashboard h3 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .employee-dashboard h2 {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .employee-dashboard h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 30px;
+  }
+  
+  /* Formulaire */
+  .employee-dashboard form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .employee-dashboard label {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 5px;
+  }
+  
+  .employee-dashboard input[type="date"],
+  .employee-dashboard select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+  }
+  
+  .employee-dashboard input[type="date"]:focus,
+  .employee-dashboard select:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  .employee-dashboard button[type="submit"] {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .employee-dashboard button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Liste des demandes de congé */
+  .employee-dashboard ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .employee-dashboard ul li {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .employee-dashboard ul li:nth-child(odd) {
+    background-color: #f1f1f1;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    .employee-dashboard {
+      padding: 15px;
+    }
+  
+    .employee-dashboard h2 {
+      font-size: 20px;
+    }
+  
+    .employee-dashboard h3 {
+      font-size: 18px;
+    }
+  
+    .employee-dashboard input[type="date"],
+    .employee-dashboard select,
+    .employee-dashboard button[type="submit"] {
+      font-size: 14px;
+    }
+  
+    .employee-dashboard ul li {
+      font-size: 14px;
+    }
+  }

@@ -1,0 +1,105 @@
+/* Conteneur principal */
+.admin-dashboard {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Titres */
+.admin-dashboard h2,
+.admin-dashboard h3 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.admin-dashboard h2 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.admin-dashboard h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 30px;
+}
+
+/* Tableau */
+.admin-dashboard table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.admin-dashboard th,
+.admin-dashboard td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.admin-dashboard th {
+  background-color: #007bff;
+  color: white;
+}
+
+.admin-dashboard tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.admin-dashboard tr:hover {
+  background-color: #ddd;
+}
+
+/* Boutons */
+.admin-dashboard button {
+  padding: 5px 10px;
+  margin-right: 5px;
+  font-size: 14px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.admin-dashboard button:first-of-type {
+  background-color: #28a745; /* Vert pour approuver */
+}
+
+.admin-dashboard button:last-of-type {
+  background-color: #dc3545; /* Rouge pour rejeter */
+}
+
+.admin-dashboard button:hover {
+  opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .admin-dashboard {
+    padding: 15px;
+  }
+
+  .admin-dashboard h2 {
+    font-size: 20px;
+  }
+
+  .admin-dashboard h3 {
+    font-size: 18px;
+  }
+
+  .admin-dashboard th,
+  .admin-dashboard td {
+    padding: 8px;
+  }
+
+  .admin-dashboard button {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+}

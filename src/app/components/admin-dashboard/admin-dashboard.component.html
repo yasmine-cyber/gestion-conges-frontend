@@ -1,0 +1,55 @@
+<div class="admin-dashboard">
+  <h2>Gestion des demandes de congé</h2>
+
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Employé</th>
+        <th>Début</th>
+        <th>Fin</th>
+        <th>Motif</th>
+        <th>Statut</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let request of leaveRequests">
+        <td>{{ request.user.first_name }} {{ request.user.last_name }}</td>
+        <td>{{ request.start_date | date:'dd/MM/yyyy' }}</td>
+        <td>{{ request.end_date | date:'dd/MM/yyyy' }}</td>
+        <td>{{ request.cause }}</td>
+        <td [class]="request.status">{{ request.status }}</td>
+        <td>
+          <div *ngIf="selectedRequest?.id === request.id; else defaultActions">
+            <textarea 
+              [(ngModel)]="commentaire" 
+              placeholder="Commentaire obligatoire"
+              style="display: block; margin-bottom: 10px;"
+            ></textarea>
+            
+            <button (click)="confirmAction('approve')" [disabled]="!commentaire">
+              Confirmer approbation
+            </button>
+            
+            <button (click)="confirmAction('reject')" [disabled]="!commentaire" style="margin-left: 10px;">
+              Confirmer rejet
+            </button>
+            
+            <button (click)="cancelAction()" style="margin-left: 10px;">
+              Annuler
+            </button>
+          </div>
+
+          <ng-template #defaultActions>
+            <button (click)="initApprove(request)">Approuver</button>
+            <button (click)="initReject(request)" style="margin-left: 10px;">Rejeter</button>
+          </ng-template>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
