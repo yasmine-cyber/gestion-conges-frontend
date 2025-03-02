@@ -21,20 +21,23 @@ export class AdminDashboardComponent {
 
   ngOnInit(): void {
     this.loadLeaveRequests();
+   
   }
   loadLeaveRequests() {
     this.leaveService.getAllLeaveRequests().subscribe({
       next: (data) => {
-        this.leaveRequests = data;
+        this.leaveRequests = data.filter(req => req.status !== 'canceled');
         this.errorMessage = '';
       },
       error: (error) => this.handleError(error, 'chargement des demandes')
     });
   }
+ 
   // Méthode pour initier l'approbation
   initApprove(request: any) {
     this.selectedRequest = request;
   }
+
 
   // Méthode pour initier le rejet
   initReject(request: any) {

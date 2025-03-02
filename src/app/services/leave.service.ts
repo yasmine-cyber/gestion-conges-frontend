@@ -64,6 +64,10 @@ export class LeaveService {
       { headers: this.getAuthHeaders() }
     );
   }
+  cancelLeaveRequest(id: number): Observable<any> {
+  return this.http.patch(`${this.apiUrl}/${id}/cancel`, {}, { headers: this.getAuthHeaders() });
+}
+
 
   private handleError(error: HttpErrorResponse): Observable<never> {
     console.error('Erreur LeaveService:', error);
